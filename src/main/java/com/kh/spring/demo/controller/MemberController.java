@@ -1,6 +1,7 @@
 package com.kh.spring.demo.controller;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,18 +33,34 @@ public class MemberController {
 		
 		if(loginMember != null)
 		{
-			System.out.println("µğºñµ¥ÀÌÅÍ(¾ÆÀÌµğ) : " + loginMember.getUserId());
-			System.out.println("µğºñµ¥ÀÌÅÍ(ºñ¹Ğ¹øÈ£) : "+ loginMember.getPassword());
-			System.out.println("Á÷Á¢ÀÔ·Â°ª(¾ÆÀÌµğ) : " + m.getUserId());
-			System.out.println("Á÷Á¢ÀÔ·Â°ª(ºñ¹Ğ¹øÈ£) : " + m.getPassword());
+			System.out.println("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½(ï¿½ï¿½ï¿½Ìµï¿½) : " + loginMember.getUserId());
+			System.out.println("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½(ï¿½ï¿½Ğ¹ï¿½È£) : "+ loginMember.getPassword());
+			System.out.println("ï¿½ï¿½ï¿½ï¿½ï¿½Ô·Â°ï¿½(ï¿½ï¿½ï¿½Ìµï¿½) : " + m.getUserId());
+			System.out.println("ï¿½ï¿½ï¿½ï¿½ï¿½Ô·Â°ï¿½(ï¿½ï¿½Ğ¹ï¿½È£) : " + m.getPassword());
 			if(m.getUserId().equals(loginMember.getUserId()) && m.getPassword().equals(loginMember.getPassword()))
 			{
 				//request.setAttribute("loginMember", loginMember);				
 				session.setAttribute("loginMember", loginMember);
+				System.out.println("ë¡œê·¸ì¸ì„±ê³µ");
+			}else
+			{
+				System.out.println("ë¡œê·¸ì¸ì‹¤íŒ¨");
 			}
 		}
+		
 
 		return "redirect:/";
 	}
+	
+	@RequestMapping("/member/memberLogout.do")
+	public String memberLogout(HttpServletRequest request, HttpServletResponse response)
+	{
+		HttpSession session = request.getSession();
+		
+		session.invalidate();
+		return "redirect:/";
+	}
+	
+	
 
 }

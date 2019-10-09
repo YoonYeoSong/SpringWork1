@@ -29,7 +29,7 @@ public class DemoController {
 	@RequestMapping("/demo/demo.do")
 	public String demo()
 	{
-		System.out.println("/demo/demo.do ÄÁÆ®·Ñ·¯ È£Ãâ");
+		System.out.println("/demo/demo.do ï¿½ï¿½Æ®ï¿½Ñ·ï¿½ È£ï¿½ï¿½");
 		return "demo/demo";
 	}
 
@@ -37,20 +37,20 @@ public class DemoController {
 	@RequestMapping("/demo/demo1.do")
 	public String demo1(HttpServletRequest req, HttpServletResponse res)
 	{
-		//ÄÁÆ®·Ñ·¯ ¸Ş¼Òµå°¡ ¹ŞÀ» ¼ö ÀÖ´Â Parameter
+		//ï¿½ï¿½Æ®ï¿½Ñ·ï¿½ ï¿½Ş¼Òµå°¡ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½Ö´ï¿½ Parameter
 		// HttpServletRequest
 		// HttpServletResponse
 		// HttpSession
 		// java.util.Locale
-		// InputStream, Reader : ¿äÃ»¿¡ ´ëÇÑ ½ºÆ®¸²
-		// OutputStream, Writer : ¿äÃ»¿¡ ´ëÇÑ Ãâ·Â ½ºÆ®¸²
+		// InputStream, Reader : ï¿½ï¿½Ã»ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Æ®ï¿½ï¿½
+		// OutputStream, Writer : ï¿½ï¿½Ã»ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½Æ®ï¿½ï¿½
 		// @PathVariable
 		// @RequestParam
 		// @RequestHeader
 		// @CookieValue
-		// @RequestBody : Ajax Àü¼Û½Ã json°´Ã¼¸¦ ¹Ş´Â ÆÄ¶ó¹ÌÅÍ Å¸ÀÔ
-		// Map, Model, ModelMap : º¸³¾ µ¥ÀÌÅÍ¸¦ º¸°üÇÏ´Â Àü¿ë °´Ã¼
-		// Command°´Ã¼ : VoÆÄ¶ó¹ÌÅÍ·Î ³Ñ¾î¿À´Â °ªÀ» ÀÚµ¿À¸·Î Vo´ëÀÔ!
+		// @RequestBody : Ajax ï¿½ï¿½ï¿½Û½ï¿½ jsonï¿½ï¿½Ã¼ï¿½ï¿½ ï¿½Ş´ï¿½ ï¿½Ä¶ï¿½ï¿½ï¿½ï¿½ Å¸ï¿½ï¿½
+		// Map, Model, ModelMap : ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Í¸ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã¼
+		// Commandï¿½ï¿½Ã¼ : Voï¿½Ä¶ï¿½ï¿½ï¿½Í·ï¿½ ï¿½Ñ¾ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Úµï¿½ï¿½ï¿½ï¿½ï¿½ Voï¿½ï¿½ï¿½ï¿½!
 		String devName = req.getParameter("devName");
 		int devAge = Integer.parseInt(req.getParameter("devAge"));
 		String devEmail = req.getParameter("devEmail");
@@ -60,7 +60,7 @@ public class DemoController {
 		System.out.println(devName + devAge + devEmail + devGender);
 
 		for(String s : devLangs)
-			System.out.println(s); //demoResult.jsp ¾È¸¸µé¾î¼­ 404¶ß¸é¼­ syso console¿¡ ÂïÈû
+			System.out.println(s); //demoResult.jsp ï¿½È¸ï¿½ï¿½ï¿½î¼­ 404ï¿½ß¸é¼­ syso consoleï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 
 		Dev dev = new Dev(devName, devAge, devEmail, devGender, devLangs);
 		req.setAttribute("dev", dev);
@@ -70,11 +70,11 @@ public class DemoController {
 	}
 
 
-//	//@RequestParam(value="inputName¸í") //¸Å°³º¯¼ö ÁöÁ¤->¸Å°³º¯¼ö À§Ä¡
+//	//@RequestParam(value="inputNameï¿½ï¿½") //ï¿½Å°ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½->ï¿½Å°ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ä¡
 //	@RequestMapping("/demo/demo2.do")
 //	public String demo2(
-//				@RequestParam(value="devName") String devName, // ¸Å°³º¯¼ö ¾È¿¡ ÆÄ¶÷ÀÇ º§·ù°ªÀ» ÀÚ·áÇüÀ¸·Î ¹Ş¾Æ Á¤ÀÇ
-//				@RequestParam(value="devAge", required = false, defaultValue = "28") int devAge,      //¸Å°³º¯¼ö
+//				@RequestParam(value="devName") String devName, // ï¿½Å°ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½È¿ï¿½ ï¿½Ä¶ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ú·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ş¾ï¿½ ï¿½ï¿½ï¿½ï¿½
+//				@RequestParam(value="devAge", required = false, defaultValue = "28") int devAge,      //ï¿½Å°ï¿½ï¿½ï¿½ï¿½ï¿½
 //				@RequestParam(value="devEmail") String devEmail, 
 //				@RequestParam(value="devGender") String devGender, 
 //				@RequestParam(value="devLang") String[] devLang,
@@ -103,13 +103,13 @@ public class DemoController {
 //		return "demo/demoResult";
 //	}
 	
-	//@RequestParam(value="inputName¸í") //¸Å°³º¯¼ö ÁöÁ¤->¸Å°³º¯¼ö À§Ä¡
-	//°øÀ¯ °´Ã¼¸¦ requestÇÏÁö ¾Ê°í Model°´Ã¼¸¦ ÀÌ¿ëÇÏ¿©
-	//µ¥ÀÌÅÍ¸¦ °øÀ¯ÇÒ ¼ö ÀÖÀ½
+	//@RequestParam(value="inputNameï¿½ï¿½") //ï¿½Å°ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½->ï¿½Å°ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ä¡
+	//ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã¼ï¿½ï¿½ requestï¿½ï¿½ï¿½ï¿½ ï¿½Ê°ï¿½ Modelï¿½ï¿½Ã¼ï¿½ï¿½ ï¿½Ì¿ï¿½ï¿½Ï¿ï¿½
+	//ï¿½ï¿½ï¿½ï¿½ï¿½Í¸ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	@RequestMapping("/demo/demo2.do")
 	public String demo2(
-				@RequestParam(value="devName") String devName, // ¸Å°³º¯¼ö ¾È¿¡ ÆÄ¶÷ÀÇ º§·ù°ªÀ» ÀÚ·áÇüÀ¸·Î ¹Ş¾Æ Á¤ÀÇ
-				@RequestParam(value="devAge", required = false, defaultValue = "28") int devAge,      //¸Å°³º¯¼ö
+				@RequestParam(value="devName") String devName, // ï¿½Å°ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½È¿ï¿½ ï¿½Ä¶ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ú·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ş¾ï¿½ ï¿½ï¿½ï¿½ï¿½
+				@RequestParam(value="devAge", required = false, defaultValue = "28") int devAge,      //ï¿½Å°ï¿½ï¿½ï¿½ï¿½ï¿½
 				@RequestParam(value="devEmail") String devEmail, 
 				@RequestParam(value="devGender") String devGender, 
 				@RequestParam(value="devLang") String[] devLang,
@@ -151,8 +151,8 @@ public class DemoController {
 		
 		System.out.println(result);
 		
-		//reDirectÀüÈ¯
-		// return "/";  -->/WEB-INF/views//.jsp ->¿¡·¯ Ã£À» ¼ö ¾øÀ½
+		//reDirectï¿½ï¿½È¯
+		// return "/";  -->/WEB-INF/views//.jsp ->ï¿½ï¿½ï¿½ï¿½ Ã£ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 		return "redirect:/";
 	}
 	
@@ -168,6 +168,54 @@ public class DemoController {
 		return "demo/devList";
 	}
 	
-
-
+	@RequestMapping("/demo/update.do")
+	public String updateDev(Dev dev,Model model)
+	{
+		
+		System.out.println("ì˜¤ê¸´í•˜ëƒ");
+		
+		//Dev dev = new Dev(devName, devAge, devEmail, devGender, devLang);
+		model.addAttribute("dev", dev); 
+		return "demo/updatedev";
+	}
+	
+	
+	@RequestMapping("/demo/updateEnd.do")
+	public String updateEnd(Dev dev, Model model)
+	{
+		System.out.println(dev);
+		int result = devService.updateEnd(dev);
+		
+		System.out.println(result>0?"ì—…ë°ì´íŠ¸ì™„ë£Œ":"ì‹¤íŒ¨");
+		
+		List<Dev> list = devService.selectDevList();
+		for(Dev d : list)
+		{
+			System.out.println(d.toString());
+		}
+		model.addAttribute("list", list);
+		return "demo/devList";
+	}
+	
+	@RequestMapping("/demo/delete.do")
+	public String delete(HttpServletRequest req,Dev dev, Model model)
+	{
+		int devNo = Integer.parseInt(req.getParameter("devNo"));
+		System.out.println("devNo : " + devNo);
+		
+		int result = devService.deleteDev(devNo);
+		
+		System.out.println(result>0?"ì‚­ì œì™„ë£Œ":"ì‹¤íŒ¨");
+		
+		List<Dev> list = devService.selectDevList();
+		for(Dev d : list)
+		{
+			System.out.println(d.toString());
+		}
+		model.addAttribute("list", list);
+		return "demo/devList";
+	}
+	
+	
+	
 }

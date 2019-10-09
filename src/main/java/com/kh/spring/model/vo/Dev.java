@@ -22,8 +22,20 @@ public class Dev {
     this.devGender = devGender;
     this.devLang = devLang;
   }
+  
+  
 
-  public String getDevName() { return devName; }
+  public Dev(String devName, int devNo, int devAge, String devEmail, String devGender, String[] devLang) {
+	super();
+	this.devName = devName;
+	this.devNo = devNo;
+	this.devAge = devAge;
+	this.devEmail = devEmail;
+	this.devGender = devGender;
+	this.devLang = devLang;
+}
+
+public String getDevName() { return devName; }
   public void setDevName(String devName) { this.devName = devName; }
   public int getDevNo() { return devNo; } 
   public void setDevNo(int devNo) { this.devNo = devNo; }

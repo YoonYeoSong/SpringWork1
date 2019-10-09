@@ -26,8 +26,18 @@ public class DevServiceImpl implements DevService {
 	
 	@Override
 	public List<Dev> selectDevList() {
-		// TODO Auto-generated method stub
+		
 		return dao.selectDevList(sqlSession);
 	}
-
+	
+	@Override
+	public int updateEnd(Dev dev) {
+		
+		return dao.updateEnd(sqlSession, dev);
+	}
+	@Override
+	public int deleteDev(int devNo) {
+		
+		return dao.deleteDev(sqlSession, devNo);
+	}
 }

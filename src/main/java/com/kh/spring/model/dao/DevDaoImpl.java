@@ -20,8 +20,20 @@ public class DevDaoImpl implements DevDao {
 	
 	@Override
 	public List<Dev> selectDevList(SqlSessionTemplate sqlSession) {
-		// TODO Auto-generated method stub
+		
 		return sqlSession.selectList("dev.selectDevList");
+	}
+	
+	@Override
+	public int updateEnd(SqlSessionTemplate sqlSession, Dev dev) {
+		
+		return sqlSession.update("dev.updateEnd", dev);
+	}
+	
+	@Override
+	public int deleteDev(SqlSessionTemplate sqlSession, int devNo) {
+		
+		return sqlSession.delete("dev.deleteDev", devNo);
 	}
 
 }

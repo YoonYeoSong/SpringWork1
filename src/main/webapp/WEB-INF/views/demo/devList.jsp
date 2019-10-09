@@ -23,7 +23,7 @@
 		
 		<c:if test="${!empty list}">
 			<c:forEach var="dev" items="${list}" varStatus="status">
-				<tr>
+				<tr id="${status.index}">
 					<td><c:out value="${dev.devNo}"/> </td>
 					<td><c:out value="${dev.devName}"/></td>
 					<td><c:out value="${dev.devAge}"/></td>
@@ -32,40 +32,109 @@
 					<td>
 						<c:forEach items="${dev.devLang}" var="Lang" varStatus="v">
 							<c:out value="${v.index !=0? ',':''}"/><c:out value="${Lang}"/>
-							<!-- 
-								- status.index : 0부터 시작하는 루프의 인덱스 입니다.
-								- status.count : 현재 몇번째 루프인지 값입니다. 1부터 시작합니다.				
-								- status.current : 현재 아이템입니다. var 속성의 값과 같습니다.					
-								- status.first : 현재가 첫번째 루프이면 참입니다.		
-								- status.last : 현재가 마지막 루프이면 참입니다.					
-								- status.begin : begin  속성을 사용했을 경우 그 값이 나옵니다.							
-								- status.end : end 속성을 사용했을 경우 그 값이 나옵니다.								
-								- status.step :  step 속성을 사용했을 경우 그 값이 나옵니다.
-							 -->
 						</c:forEach>
 					</td>
 					<td>
-						<button type="button" class="btn btn-outline-light" onclick="devUpdate()">수정</button>
+						<button type="button" class="btn btn-outline-light" onclick="devUpdate(${status.index})">수정</button>
 					</td>
 					<td>
-						<button type="button" class="btn btn-outline-light" onclick="devDelete()">삭제</button>
+						<button type="button" class="btn btn-outline-light" onclick="devDelete(${status.index})">삭제</button>
 					</td>
 				</tr>
 			</c:forEach>
 		</c:if>
-		
+		<!-- 
+			- status.index : 0부터 시작하는 루프의 인덱스 입니다.
+			- status.count : 현재 몇번째 루프인지 값입니다. 1부터 시작합니다.				
+			- status.current : 현재 아이템입니다. var 속성의 값과 같습니다.					
+			- status.first : 현재가 첫번째 루프이면 참입니다.		
+			- status.last : 현재가 마지막 루프이면 참입니다.					
+			- status.begin : begin  속성을 사용했을 경우 그 값이 나옵니다.							
+			- status.end : end 속성을 사용했을 경우 그 값이 나옵니다.								
+			- status.step :  step 속성을 사용했을 경우 그 값이 나옵니다.
+			-->
 </table>
 		<script>
-			/* function devModify()
+			
+			function devUpdate(e)
 			{
-				var = $("<form id=''">")
-				$("#devFrm").attr("action","${path}/demo/devUpdate.do");
-				$("#devFrm").submit();			
-			}
-			function devDelete()
-			{
+				var btnTag = document.getElementById(e);
+				console.log(btnTag.children["1"].innerHTML);
+							
+				var form = document.createElement("form");
+				form.setAttribute("charset","UTF-8");
+				form.setAttribute("method","Post");
+				form.setAttribute("action","${path}/demo/update.do");
 				
-			} */
+				
+				var hiddenField = document.createElement("input");
+				hiddenField.setAttribute("type","hidden");
+				hiddenField.setAttribute("name","devName");
+				hiddenField.setAttribute("value",btnTag.children["1"].innerHTML);
+				form.appendChild(hiddenField);
+				
+				var hiddenField = document.createElement("input");
+				hiddenField.setAttribute("type","hidden");
+				hiddenField.setAttribute("name","devNo");
+				hiddenField.setAttribute("value",btnTag.children["0"].innerHTML);
+				form.appendChild(hiddenField);
+				
+				var hiddenField = document.createElement("input");
+				hiddenField.setAttribute("type","hidden");
+				hiddenField.setAttribute("name","devAge");
+				hiddenField.setAttribute("value",btnTag.children["2"].innerHTML);
+				form.appendChild(hiddenField);
+				
+				var hiddenField = document.createElement("input");
+				hiddenField.setAttribute("type","hidden");
+				hiddenField.setAttribute("name","devEmail");
+				hiddenField.setAttribute("value",btnTag.children["3"].innerHTML);
+				form.appendChild(hiddenField);
+				
+				var hiddenField = document.createElement("input");
+				hiddenField.setAttribute("type","hidden");
+				hiddenField.setAttribute("name","devGender");
+				if(btnTag.children["4"].innerHTML.trim() == "M")
+				{
+					hiddenField.setAttribute("value","M");	
+				}else
+				{
+					hiddenField.setAttribute("value","F");	
+				}
+				form.appendChild(hiddenField);
+				
+				var hiddenField = document.createElement("input");
+				hiddenField.setAttribute("type","hidden");
+				hiddenField.setAttribute("name","devLang");
+				hiddenField.setAttribute("value",btnTag.children["5"].innerHTML);
+				form.appendChild(hiddenField);
+				
+				document.body.appendChild(form);
+				form.submit();
+				
+				
+			}
+			
+			function devDelete(e)
+			{
+				var btnTag = document.getElementById(e);
+				console.log(btnTag.children["1"].innerHTML);
+				
+				var form = document.createElement("form");
+				form.setAttribute("charset","UTF-8");
+				form.setAttribute("method","Post");
+				form.setAttribute("action","${path}/demo/delete.do");
+				
+				var hiddenField = document.createElement("input");
+				hiddenField.setAttribute("type","hidden");
+				hiddenField.setAttribute("name","devNo");
+				hiddenField.setAttribute("value",btnTag.children["0"].innerHTML.trim());
+				form.appendChild(hiddenField);
+				
+				document.body.appendChild(form);
+				form.submit();
+							
+			} 
 		
 		</script>
 	

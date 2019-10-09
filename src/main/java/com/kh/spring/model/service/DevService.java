@@ -8,5 +8,6 @@ public interface DevService {
 	
 	int insertDev(Dev dev);
 	List<Dev> selectDevList();
-
+	int updateEnd(Dev dev);
+	int deleteDev(int devNo);
 }

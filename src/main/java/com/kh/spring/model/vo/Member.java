@@ -8,8 +8,8 @@ import lombok.NoArgsConstructor;
 import lombok.RequiredArgsConstructor;
 
 
-@NoArgsConstructor //±âº»»ý¼ºÀÚ
-@Data // ¸â¹öº¯¼ö¿¡ ´ëÇÑ setter / getter, ¸Å°³º¯¼ö°¡ ÀÖ´Â »ý¼ºÀÚ, toString, equles, hashCode±îÁö ´Ù ¸¸µé¾îÁÜ
+@NoArgsConstructor //ï¿½âº»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+@Data // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ setter / getter, ï¿½Å°ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ö´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½, toString, equles, hashCodeï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 public class Member {
 	private String userId;
 	private String password;
@@ -19,6 +19,6 @@ public class Member {
 	private String email;
 	private String phone;
 	private String address;
-	private String hobby;
-	private Date enrolldate;
+	private String[] hobby;
+	private Date enrollDate;
 }

@@ -215,7 +215,4 @@ public class DemoController {
 		model.addAttribute("list", list);
 		return "demo/devList";
 	}
-	
-	
-	
 }

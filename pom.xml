@@ -60,6 +60,14 @@
      <version>${org.slf4j-version}</version>
      <scope>runtime</scope>
    </dependency>
+   
+   <!-- 
+   		1. Appender태그 : 로그 출력에 대한 환경설정하는 태그
+   		* 로그를 어디로 출력 할지(콘솔, 파일, DB)
+   		2. logger 태그 : 어디부분에서 appender실행할지 / 어떤단계에서 설정
+   		3. root 태그 : 기본적용 logger
+    -->
+   
    <dependency>
      <groupId>log4j</groupId>
      <artifactId>log4j</artifactId>
@@ -159,6 +167,32 @@
       <version>1.18.10</version>
       <scope>provided</scope>
     </dependency>
+    
+    <!-- 스프링 비밀번호 암호화 적용하기 feat security-->
+    
+    <!-- https://mvnrepository.com/artifact/org.springframework.security/spring-security-core -->
+	<dependency>
+	    <groupId>org.springframework.security</groupId>
+	    <artifactId>spring-security-core</artifactId>
+	    <version>${org.springframework-version}</version>
+	</dependency>
+	
+	<!-- https://mvnrepository.com/artifact/org.springframework.security/spring-security-web -->
+	<dependency>
+	    <groupId>org.springframework.security</groupId>
+	    <artifactId>spring-security-web</artifactId>
+	    <version>${org.springframework-version}</version>
+	</dependency>
+	
+	<!-- https://mvnrepository.com/artifact/org.springframework.security/spring-security-config -->
+	<dependency>
+	    <groupId>org.springframework.security</groupId>
+	    <artifactId>spring-security-config</artifactId>
+	    <version>${org.springframework-version}</version>
+	</dependency>
+	
+	
+    
           
    <!-- Test -->
    <dependency>

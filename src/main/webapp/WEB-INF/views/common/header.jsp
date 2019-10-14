@@ -61,6 +61,8 @@
 									목록</a>
 							</div>
 						</li>
+						<li class="nav-item"><a class="nav-link"
+							href="${pageContext.request.contextPath}/memo/memo.do">메모</a></li>
 					</ul>
 					<c:if test="${!empty loginMember}">
 

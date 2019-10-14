@@ -1,0 +1,37 @@
+AOP(Aspect Oriented Programing)
+관점 지향 프로그래밍
+AOP는 oop를 더 oop스럽게 사용할 수 있게 하는 기술
+객체를 재사용함으로써 개발자들은 반복되는 코드를 많이 줄였지만,
+매 요청마다, 로그, 권한체크, 인증, 예외처리 등 필수요소는 반복 될 수 밖에 없다 
+AOP통해 비즈니스로직(주업무)과 공통모듈(보조업무)로 구분한 후
+비즈니스로직 코드 외부에서 필요한 시점에 공통모듈을 입하여 실행하는것
+주요 개념
+a. 관점(aspect)
+구현 하고자하는 횡단의 관심사의 기능, 클래스 단위
+
+b. joinpoint(적용 가능한 지점)
+관점을 삽입하여 advice(적용될코드(메소드))가 적용 될 수 있는 위치
+after, before, around
+
+c. Pointcut
+어느클래스의 어느메소드 전, 후, 전/후에 적용 할지 패턴형식으로 작성하는것을 말함
+
+d. advice
+공통모듈 로직을 의미함
+
+AOP적용 
+1.선언적방식 : xml에서 설정
+예) 
+<aop:config>
+	<aop:aspect id="test" ref="loggerAspect">
+		<aop:pointcut expression="excution(클래스명(패키지포함)) 메소드명 매개변수 id="pc" /">
+		<aop:after|before|around method="loggerAspect의 메소드명" pointcut="pc"/>
+				
+	</aop:aspect>
+</aop:config>
+2.어노테잉션방식 : 클래스내부에서 어노테이션으로 구현
+어노테이션을 검색할 수 있게 설정 *xml파일에 반드시 있어야함
+<aop:aspectj-autoproxy />
+aop설정 객체 메소드에 어노테이션표시
+@Pointcut("execution(public **(..))")
+메소드명

@@ -21,5 +21,11 @@ public class MemberServiceImpl implements MemberService {
 		
 		return dao.selectMemberOne(sqlSession, m);
 	}
+	
+	@Override
+	public int memberEnrollEnd(Member m) {
+		// TODO Auto-generated method stub
+		return dao.memberEnrollEnd(sqlSession, m);
+	}
 
 }

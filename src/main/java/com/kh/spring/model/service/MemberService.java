@@ -4,6 +4,6 @@ import com.kh.spring.model.vo.Member;
 
 public interface MemberService {
 	Member selectMemberOne(Member m);
-	
+	int memberEnrollEnd(Member m);
 
 }

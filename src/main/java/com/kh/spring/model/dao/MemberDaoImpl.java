@@ -15,5 +15,11 @@ public class MemberDaoImpl implements MemberDao {
 		
 		return sqlSession.selectOne("member.selectMemberOne", m);
 	}
+	
+	@Override
+	public int memberEnrollEnd(SqlSessionTemplate sqlSession, Member m) {
+		// TODO Auto-generated method stub
+		return sqlSession.insert("member.memberEnrollEnd", m);
+	}
 
 }

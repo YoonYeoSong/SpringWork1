@@ -28,8 +28,13 @@
 		<interceptor>	
 			<mapping path="/demo/*"/> <!-- member 또는 demo 있는 애들만설정  -->
 			<!-- <exclude-mapping path="/member/*"/>  -->  <!-- ~ 빼고 다 적용해  -->
+			<mapping path="/board/*"/>
 			<beans:bean id="loggerInterceptor" class="com.kh.spring.common.interceptor.LoggerInterceptor"/>
 		</interceptor>
 	</interceptors>
+	
+	<beans:bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+		<beans:property name="maxUploadSize" value="10485760"/> <!-- 버퍼사이즈 정해주기 -->
+	</beans:bean>
 	
 </beans:beans>
